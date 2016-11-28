@@ -1,4 +1,4 @@
-package ir.Amir_P.MarkerSpiderifier;
+package com.Amir_P.MarkerSpiderifier;
 
 public class MarkerSpiderifier extends AppCompatActivity implements OnMapReadyCallback, ClusterManager.OnClusterItemClickListener, ClusterManager.OnClusterClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnCameraIdleListener, GoogleMap.OnMapClickListener {
     GoogleMap Map;
