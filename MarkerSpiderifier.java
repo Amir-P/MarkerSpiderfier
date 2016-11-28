@@ -51,7 +51,7 @@ public class MarkerSpiderifier extends AppCompatActivity implements OnMapReadyCa
             mClusterItem prevClusterItem = (mClusterItem) objects[i];
             markerTxt.setText(" " + prevClusterItem.getTitle() + " ");
             mIcon.setContentView(markerTxt);
-            BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(mIconClinic.makeIcon());
+            BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(mIcon.makeIcon());
             LatLng latLng = new LatLng(clusterPosition.latitude + (Math.cos(radians * i) * unit), clusterPosition.longitude + (Math.sin(radians * i) * unit));
             markerOptions.icon(bitmapDescriptor)
                     .position(latLng)
