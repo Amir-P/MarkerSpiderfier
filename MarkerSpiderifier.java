@@ -1,6 +1,6 @@
 package ir.Amir_P.MarkerSpiderifier;
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, ClusterManager.OnClusterItemClickListener, ClusterManager.OnClusterClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnCameraIdleListener, GoogleMap.OnMapClickListener {
+public class MarkerSpiderifier extends AppCompatActivity implements OnMapReadyCallback, ClusterManager.OnClusterItemClickListener, ClusterManager.OnClusterClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnCameraIdleListener, GoogleMap.OnMapClickListener {
     GoogleMap Map;
     float focus = 5f;
     ClusterManager<mClusterItem> mClusterManager;
@@ -12,7 +12,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        setContentView(R.layout.activity);
         mIcon = new IconGenerator(this);
         markerTxt = (TextView) getLayoutInflater().inflate(R.layout.marker, null);
         ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
