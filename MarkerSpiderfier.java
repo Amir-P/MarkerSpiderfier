@@ -27,8 +27,7 @@ public class MarkerSpiderfier extends AppCompatActivity implements OnMapReadyCal
     
     @Override
     public boolean onClusterItemClick(ClusterItem clusterItem) {
-        selectedLatLng = clusterItem.getPosition();
-        showBottomSheet();
+        //
         return true;
     }
     
@@ -117,7 +116,6 @@ public class MarkerSpiderfier extends AppCompatActivity implements OnMapReadyCal
         @Override
         protected void onBeforeClusterItemRendered(mClusterItem item, MarkerOptions markerOptions) {
             markerTxt.setText(item.getTitle());
-            mIcon.setContentView(markerTxt);
             BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(mIcon.makeIcon());
             markerOptions.icon(bitmapDescriptor);
         }
@@ -129,7 +127,6 @@ public class MarkerSpiderfier extends AppCompatActivity implements OnMapReadyCal
             } else {
                 markerTxt.setText(cluster.getSize());
             }
-            mIcon.setContentView(markerTxt);
             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(mIcon.makeIcon()));
         }
 
