@@ -1,6 +1,6 @@
-package com.Amir_P.MarkerSpiderifier;
+package com.Amir_P.MarkerSpiderfier;
 
-public class MarkerSpiderifier extends AppCompatActivity implements OnMapReadyCallback, ClusterManager.OnClusterItemClickListener, ClusterManager.OnClusterClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnCameraIdleListener, GoogleMap.OnMapClickListener {
+public class MarkerSpiderfier extends AppCompatActivity implements OnMapReadyCallback, ClusterManager.OnClusterItemClickListener, ClusterManager.OnClusterClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnCameraIdleListener, GoogleMap.OnMapClickListener {
     GoogleMap Map;
     float focus = 5f;
     ClusterManager<mClusterItem> mClusterManager;
@@ -15,6 +15,7 @@ public class MarkerSpiderifier extends AppCompatActivity implements OnMapReadyCa
         setContentView(R.layout.activity);
         mIcon = new IconGenerator(this);
         markerTxt = (TextView) getLayoutInflater().inflate(R.layout.marker, null);
+        mIcon.setContentView(markerTxt);
         ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
     }
 
@@ -50,12 +51,11 @@ public class MarkerSpiderifier extends AppCompatActivity implements OnMapReadyCa
             PolylineOptions options = new PolylineOptions().width(5).color(getResources().getColor(R.color.colorPrimary));
             mClusterItem prevClusterItem = (mClusterItem) objects[i];
             markerTxt.setText(" " + prevClusterItem.getTitle() + " ");
-            mIcon.setContentView(markerTxt);
             BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(mIcon.makeIcon());
             LatLng latLng = new LatLng(clusterPosition.latitude + (Math.cos(radians * i) * unit), clusterPosition.longitude + (Math.sin(radians * i) * unit));
             markerOptions.icon(bitmapDescriptor)
                     .position(latLng)
-                    .title(prevClusterItem.latLng.latitude + ":" + prevClusterItem.latLng.longitude);
+                    .title(prevClusterItem.latLng.latitude + ":" + prevClusterItem.latLng.longitude).zIndex(1000);
             options.add(latLng).add(clusterPosition);
             markers.add(Map.addMarker(markerOptions));
             polylines.add(Map.addPolyline(options));
